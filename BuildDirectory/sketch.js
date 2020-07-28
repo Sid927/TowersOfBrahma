@@ -128,8 +128,7 @@ let ringHeight = (maxHeight / numOfRings > 50) ? 50 : (maxHeight / numOfRings);
 console.log(rv);
 
 function setup() {
-  // Change createCanvas parameters to window width and window height
-  createCanvas(900, 900);
+  createCanvas(window.width, window.height);
   frameRate(fr)
 }
 
@@ -141,12 +140,10 @@ function draw() {
   rect(window.width * 13/16, window.height - window.height * 3/4, 10, window.height - window.height * 1/4)
   textSize((window.height * 3/40 + window.width * 3/40) / 2);
   textAlign(CENTER, CENTER)
-  // Change text second parameter to synchronize with textSize
-  text('Towers Of Brahma', window.width / 2, window.height - window.height + 70);
+  text('Towers Of Brahma', window.width / 2, window.height * 7/80);
   textSize((window.height * 1/20 + window.width * 1/20) / 2);
   textAlign(CENTER, CENTER)
-  // Change text second parameter to synchronize with textSize
-  text('Moves: ' + counter, window.width / 2, window.height - window.height + 140);
+  text('Moves: ' + counter, window.width / 2, window.height * 7/40);
   for (let i in rv.moves[counter].T0) {
     let width = getWidthOfRing(rv.moves[counter].T0[i], numOfRings, minWidth, maxWidth);
     let bwColor = getColorOfRing(rv.moves[counter].T0[i], numOfRings);
