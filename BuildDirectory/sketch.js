@@ -128,42 +128,42 @@ let ringHeight = (maxHeight / numOfRings > 50) ? 50 : (maxHeight / numOfRings);
 console.log(rv);
 
 function setup() {
-  createCanvas(window.width, window.height);
+  createCanvas(window.innerWidth, window.innerHeight);
   frameRate(fr)
 }
 
 function draw() {
   background(255);
   fill(0)
-  rect(window.width * 3/16, window.height - window.height * 3/4, 10, window.height - window.height * 1/4)
-  rect(window.width * 1/2, window.height - window.height * 3/4, 10, window.height - window.height * 1/4)
-  rect(window.width * 13/16, window.height - window.height * 3/4, 10, window.height - window.height * 1/4)
-  textSize((window.height * 3/40 + window.width * 3/40) / 2);
+  rect(window.innerWidth * 3/16, window.innerHeight - window.innerHeight * 3/4, 10, window.innerHeight - window.innerHeight * 1/4)
+  rect(window.innerWidth * 1/2, window.innerHeight - window.innerHeight * 3/4, 10, window.innerHeight - window.innerHeight * 1/4)
+  rect(window.innerWidth * 13/16, window.innerHeight - window.innerHeight * 3/4, 10, window.innerHeight - window.innerHeight * 1/4)
+  textSize((window.innerHeight * 3/40 + window.innerWidth * 3/40) / 2);
   textAlign(CENTER, CENTER)
-  text('Towers Of Brahma', window.width / 2, window.height * 7/80);
-  textSize((window.height * 1/20 + window.width * 1/20) / 2);
+  text('Towers Of Brahma', window.innerWidth / 2, window.innerHeight * 7/80);
+  textSize((window.innerHeight * 1/20 + window.innerWidth * 1/20) / 2);
   textAlign(CENTER, CENTER)
-  text('Moves: ' + counter, window.width / 2, window.height * 7/40);
+  text('Moves: ' + counter, window.innerWidth / 2, window.innerHeight * 7/40);
   for (let i in rv.moves[counter].T0) {
     let width = getWidthOfRing(rv.moves[counter].T0[i], numOfRings, minWidth, maxWidth);
     let bwColor = getColorOfRing(rv.moves[counter].T0[i], numOfRings);
     let rgbColor = color(bwColor, 255 - bwColor, numOfRings * colorChanger)
     fill(rgbColor)
-    rect(window.width * 3/16 - (width / 2), window.height - (ringHeight * (rv.moves[counter].T0.length - i)), width, ringHeight);
+    rect(window.innerWidth * 3/16 - (width / 2), window.innerHeight - (ringHeight * (rv.moves[counter].T0.length - i)), width, ringHeight);
   }
   for (let i in rv.moves[counter].T1) {
     let width = getWidthOfRing(rv.moves[counter].T1[i], numOfRings, minWidth, maxWidth);
     let bwColor = getColorOfRing(rv.moves[counter].T1[i], numOfRings);
     let rgbColor = color(bwColor, 255 - bwColor, numOfRings * colorChanger)
     fill(rgbColor)
-    rect(window.width * 1/2 - (width / 2), window.height - (ringHeight * (rv.moves[counter].T1.length - i)), width, ringHeight);
+    rect(window.innerWidth * 1/2 - (width / 2), window.innerHeight - (ringHeight * (rv.moves[counter].T1.length - i)), width, ringHeight);
   }
   for (let i in rv.moves[counter].T2) {
     let width = getWidthOfRing(rv.moves[counter].T2[i], numOfRings, minWidth, maxWidth);
     let bwColor = getColorOfRing(rv.moves[counter].T2[i], numOfRings);
     let rgbColor = color(bwColor, 255 - bwColor, numOfRings * colorChanger)
     fill(rgbColor)
-    rect(window.width * 13/16 - (width / 2), window.height - (ringHeight * (rv.moves[counter].T2.length - i)), width, ringHeight);
+    rect(window.innerWidth * 13/16 - (width / 2), window.innerHeight - (ringHeight * (rv.moves[counter].T2.length - i)), width, ringHeight);
   }
   counter++;
   if (counter === rv.moves.length) {
